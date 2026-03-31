@@ -67,12 +67,25 @@ function render() {
   eventos.innerHTML = "";
 
   posts.forEach((p, i) => {
-
     let card = document.createElement("div");
     card.classList.add("card");
 
     let slides = "";
     let total = 0;
+
+    // 🖼️ imagens
+    if (p.imagens && Array.isArray(p.imagens)) {
+      p.imagens.forEach(img => {
+        if (!img) return;
+        let link = img.trim();
+        slides += `
+          <div class="slide">
+            <img src="${link}">
+          </div>
+        `;
+        total++;
+      });
+    }
 
     // 🎬 vídeo
     if (p.video) {
@@ -84,17 +97,6 @@ function render() {
       total++;
     }
 
-    // 🖼️ imagens
-    if (p.imagens) {
-    if (p.imagens) {
-  p.imagens.forEach(img => {
-    slides += `
-      <div class="slide">
-        <img src="${img}">
-      </div>
-    `;
-  });
-    }
     let dots = "";
     for (let d = 0; d < total; d++) {
       dots += `<span class="dot ${d === 0 ? "active" : ""}"></span>`;
@@ -136,7 +138,6 @@ function render() {
     } else {
       lourdes.appendChild(card);
     }
-
   });
 
   ativarCarousel();
@@ -145,17 +146,14 @@ function render() {
 // 🔘 CARROSSEL
 function ativarCarousel() {
   document.querySelectorAll(".carousel").forEach(carousel => {
-
     let track = carousel.querySelector(".carousel-track");
     let dots = carousel.querySelectorAll(".dot");
 
     track.addEventListener("scroll", () => {
       let index = Math.round(track.scrollLeft / track.clientWidth);
-
       dots.forEach(d => d.classList.remove("active"));
       if (dots[index]) dots[index].classList.add("active");
     });
-
   });
 }
 
@@ -164,14 +162,13 @@ async function curtir(i) {
   const { doc, updateDoc } = await import("https://www.gstatic.com/firebasejs/12.11.0/firebase-firestore.js");
 
   let post = posts[i];
-
   post.curtidas = (post.curtidas || 0) + 1;
 
   await updateDoc(doc(db, "posts", post.id), {
     curtidas: post.curtidas
   });
 
-  render(); // 🔥 só renderiza, não recarrega tudo
+  render();
 }
 
 // 💬 COMENTAR
@@ -182,7 +179,6 @@ async function comentar(i) {
   if (!texto) return;
 
   let post = posts[i];
-
   if (!post.comentarios) post.comentarios = [];
   post.comentarios.push(texto);
 
@@ -190,7 +186,7 @@ async function comentar(i) {
     comentarios: post.comentarios
   });
 
-  render(); // 🔥 não recarrega tudo
+  render();
 }
 
 // 📤 COMPARTILHAR
@@ -198,6 +194,7 @@ function compartilhar(titulo) {
   navigator.clipboard.writeText(titulo);
   alert("Copiado 🔥");
 }
+
 window.curtir = curtir;
 window.comentar = comentar;
 window.compartilhar = compartilhar;
