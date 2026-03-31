@@ -61,3 +61,58 @@ background: #ff3b3b;
 padding: 6px 10px;
 font-size: 12px;
 }
+
+/* ===== RESPONSIVO ===== */
+
+/* 📱 CELULAR */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input, textarea, select {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  #lista div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+
+/* 🖥️ PC / DESKTOP */
+@media (min-width: 768px) {
+
+  body {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  input, textarea, select {
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+
+  #lista div {
+    flex-direction: row;
+  }
+
+  }
