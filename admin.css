@@ -3,6 +3,8 @@ body {
   font-family: Arial;
   color: white;
   padding: 20px;
+  max-width: 800px; /* limita no PC */
+  margin: auto; /* centraliza */
 }
 
 /* TÍTULO */
@@ -10,6 +12,7 @@ h1 {
   text-align: center;
   margin-bottom: 20px;
   color: #b388ff;
+  font-size: 28px;
 }
 
 /* FORM */
@@ -21,6 +24,7 @@ input, textarea, select {
   border: none;
   background: #0b1021;
   color: white;
+  font-size: 16px;
 }
 
 /* BOTÃO SALVAR */
@@ -33,9 +37,10 @@ button {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  font-size: 16px;
 }
 
-/* LISTA DE POSTS (IMPORTANTE 🔥) */
+/* LISTA DE POSTS */
 #lista {
   margin-top: 20px;
 }
@@ -43,15 +48,18 @@ button {
 /* ITEM DO POST */
 #lista div {
   background: #0a0d1c;
-  padding: 10px;
+  padding: 12px;
   border-radius: 10px;
   margin-bottom: 10px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
 
   border: 1px solid rgba(0,150,255,0.2);
+
+  flex-wrap: wrap; /* evita quebrar no celular */
 }
 
 /* BOTÃO EXCLUIR */
@@ -61,3 +69,40 @@ button {
   padding: 6px 10px;
   font-size: 12px;
 }
+
+/* 🔥 RESPONSIVIDADE */
+
+/* CELULAR */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  #lista div {
+    flex-direction: column; /* empilha */
+    align-items: flex-start;
+  }
+
+  #lista button {
+    align-self: flex-end;
+  }
+}
+
+/* TABLET / PC */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  input, textarea, select {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 18px;
+  }
+  
