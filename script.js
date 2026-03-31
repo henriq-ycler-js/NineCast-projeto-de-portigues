@@ -86,16 +86,15 @@ function render() {
 
     // 🖼️ imagens
     if (p.imagens) {
-      p.imagens.forEach(img => {
-        slides += `
-          <div class="slide">
-            <img src="${img}">
-          </div>
-        `;
-        total++;
-      });
+    if (p.imagens) {
+  p.imagens.forEach(img => {
+    slides += `
+      <div class="slide">
+        <img src="${img}">
+      </div>
+    `;
+  });
     }
-
     let dots = "";
     for (let d = 0; d < total; d++) {
       dots += `<span class="dot ${d === 0 ? "active" : ""}"></span>`;
