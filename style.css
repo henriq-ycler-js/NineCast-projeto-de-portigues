@@ -216,3 +216,92 @@ footer {
   opacity: 1;
   color: #b388ff;
 }
+
+/* ===== RESPONSIVO ===== */
+
+/* 📱 CELULAR (já é o padrão, mas ajustamos melhor) */
+@media (max-width: 600px) {
+
+  .logo {
+    width: 150px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .slide img,
+  .slide iframe {
+    height: 200px;
+  }
+
+  .card-content p {
+    font-size: 13px;
+  }
+
+}
+
+
+/* 💻 TABLET */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  nav {
+    gap: 25px;
+  }
+
+  .card {
+    max-width: 700px;
+    margin: 20px auto;
+  }
+
+  .slide img,
+  .slide iframe {
+    height: 300px;
+  }
+
+}
+
+
+/* 🖥️ PC / DESKTOP */
+@media (min-width: 1025px) {
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 60px;
+  }
+
+  nav {
+    gap: 30px;
+  }
+
+  section {
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .card {
+    display: flex;
+    gap: 20px;
+  }
+
+  .carousel {
+    width: 50%;
+  }
+
+  .card-content {
+    width: 50%;
+  }
+
+  .slide img,
+  .slide iframe {
+    height: 100%;
+    min-height: 250px;
+  }
+
+  }
