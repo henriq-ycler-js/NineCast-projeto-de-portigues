@@ -35,12 +35,7 @@ O projeto foi construído utilizando tecnologias básicas da web, com o objetivo
 - JavaScript (básico)  
 - Git & GitHub  
 - Netlify (deploy)
-
----
-
-## 📷 Preview
-
-*(adicione aqui prints do site se quiser deixar mais bonito)*
+- back-end
 
 ---
 
@@ -54,14 +49,3 @@ Este projeto foi desenvolvido com o propósito de:
 - Utilizar ferramentas como GitHub e Netlify  
 
 ---
-
-## ⚙️ Como rodar o projeto
-
-```bash
-# Clone o repositório
-git clone https://github.com/henriq-ycler-js/NineCast-projeto-de-portigues
-
-# Acesse a pasta
-cd NineCast-projeto-de-portigues
-
-# Abra o index.html no navegador
